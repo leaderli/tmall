@@ -8,6 +8,7 @@ package tmall.servlet;
 
 import tmall.dao.*;
 import tmall.util.Page;
+import tmall.util.PrintUtil;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,11 +44,8 @@ public class BaseForeServlet extends HttpServlet{
 			}
 			
 			Page page = new Page(start,count);
-			
 			String method = (String) request.getAttribute("method");
-			System.out.println(page);
-			System.out.println(method);
-
+			PrintUtil.print(page,method);
 			Method m = this.getClass().getMethod(method, HttpServletRequest.class,
 					HttpServletResponse.class,Page.class);
 			
